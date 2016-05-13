@@ -19,6 +19,13 @@
   border-radius: @args;
 }
 
+// typo 
+.font-size(@size) {
+	@remsize: @size / 16;
+	font-size: e("@{size}px");
+	font-size: e("@{remsize}rem"); 
+}
+
 .border-radius-top (@radius: 10) {
 	-webkit-border-top-left-radius: e("@{radius}px");
 	-webkit-border-top-right-radius: e("@{radius}px");
