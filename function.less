@@ -1,0 +1,74 @@
+
+.transition(@duration){
+	-webkit-transition: all @duration ease-in-out;
+	-moz-transition: all @duration ease-in-out;
+	-o-transition: all @duration ease-in-out;
+	transition: all @duration ease-in-out;
+}
+
+.transform(@args){
+	 -webkit-transform: @args;
+	-moz-transform: @args;
+	-o-transform: @args;
+	transform: @args;
+}
+
+.borderradius(@args){
+  -webkit-border-radius: @args;
+  -moz-border-radius: @args;
+  border-radius: @args;
+}
+
+.border-radius-top (@radius: 10) {
+	-webkit-border-top-left-radius: e("@{radius}px");
+	-webkit-border-top-right-radius: e("@{radius}px");
+	-moz-border-radius-topleft: e("@{radius}px");
+	-moz-border-radius-topright: e("@{radius}px");
+	border-top-left-radius: e("@{radius}px");
+	border-top-right-radius: e("@{radius}px");
+}
+
+// Box shadow
+.box-shadow (@offx: 0, @offy: 0, @blur: 5px, @color: #000) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+// Text shadow
+.text-shadow (@x: 0, @y: 1px, @blur: 0, @color: #fff) {
+	text-shadow: @arguments;
+}
+
+// Extensible Background
+.background-ext() {
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+// Gradients
+#gradient {
+	.linear (@startColor: #555, @endColor: #333, @direction: top, @type: 0) {
+		background-color: transparent;
+		background: @startColor;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@startColor), color-stop(100%,@endColor));
+		background: -webkit-linear-gradient(@direction, @startColor 0%, @endColor 100%);
+		background: -moz-linear-gradient(@direction, @startColor 0%, @endColor 100%);
+		background: -ms-linear-gradient(@direction, @startColor 0%,@endColor 100%);
+		background: -o-linear-gradient(@direction, @startColor 0%,@endColor 100%);
+		background: linear-gradient(@direction, @startColor 0%,@endColor 100%);
+		background-repeat: no-repeat;
+		filter: ~"progid:DXImageTransform.Microsoft.gradient( startColorstr='@{startColor}', endColorstr='@{endColor}', GradientType='@{type}')";
+	}
+	.radial(@innerColor: #555, @outerColor: #333)  {
+		background-color: @outerColor;
+		background-image: -webkit-gradient(radial, center center, 0, center center, 460, from(@innerColor), to(@outerColor));
+		background-image: -webkit-radial-gradient(circle, @innerColor, @outerColor);
+		background-image: -moz-radial-gradient(circle, @innerColor, @outerColor);
+		background-image: -ms-radial-gradient(circle, @innerColor, @outerColor);
+		background-image: -o-radial-gradient(circle, @innerColor, @outerColor);
+		background-repeat: no-repeat;
+	}
+}
